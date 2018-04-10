@@ -1,0 +1,14 @@
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/dist/
+/src/unity/.vs/
+/src/unity/build/
+/src/unity/Library/
+/src/unity/obj/
+/src/unity/Assembly-CSharp.csproj
+/src/unity/unity.csproj
+/src/unity/Unity.PackageManagerUI.Editor.csproj
+/src/unity/unity.sln
+/src/unity/UnityEditor.StandardEvents.csproj
+node_modules/
