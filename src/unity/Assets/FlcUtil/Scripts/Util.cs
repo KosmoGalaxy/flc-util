@@ -40,7 +40,11 @@ namespace FullLegitCode.Util
                 return new PermissionResult(result);
 #endif
             }
-            catch (Exception e) { Debug.LogError("[FlcUtil.CheckPermissions] error: " + e.Message); }
+            catch (Exception e)
+            {
+                Debug.LogError("[FlcUtil.CheckPermissions] error: " + e.Message);
+                throw e;
+            }
             return null;
         }
 
@@ -54,7 +58,11 @@ namespace FullLegitCode.Util
                 _utilClass.CallStatic("requestPermissions", new object[2] { permissions, callbackProxy });
 #endif
             }
-            catch (Exception e) { Debug.LogError("[FlcUtil.RequestPermissions] error: " + e.Message); }
+            catch (Exception e)
+            {
+                Debug.LogError("[FlcUtil.RequestPermissions] error: " + e.Message);
+                throw e;
+            }
         }
 
         public static float GetTemperature()
@@ -66,7 +74,11 @@ namespace FullLegitCode.Util
                 return _utilClass.CallStatic<float>("getTemperature");
 #endif
             }
-            catch (Exception e) { Debug.LogError("[FlcUtil.GetTemperature] error: " + e.Message); }
+            catch (Exception e)
+            {
+                Debug.LogError("[FlcUtil.GetTemperature] error: " + e.Message);
+                throw e;
+            }
             return 0f;
         }
 
