@@ -45,7 +45,7 @@ namespace FullLegitCode.Util
                 Debug.LogError("[FlcUtil.CheckPermissions] error: " + e.Message);
                 throw e;
             }
-            return null;
+            return new PermissionResult(permissions, new string[0]);
         }
 
         public static void RequestPermissions(string[] permissions, RequestPermissionsCallback callback)
