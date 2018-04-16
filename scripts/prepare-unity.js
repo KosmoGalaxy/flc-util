@@ -1,6 +1,6 @@
 const copyDirectory = require('./copy-directory');
 
-copyDirectory('./unity/Assets/FlcUtil', '../dist/unity/FlcUtil', [
+copyDirectory('./src/unity/Assets/FlcUtil', './dist/unity/FlcUtil', [
   'FlcUtil.aar',
   'FlcUtilUnity.aar',
   'PermissionResult.cs',

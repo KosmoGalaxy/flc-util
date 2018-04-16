@@ -1,0 +1,29 @@
+{
+  "name": "cordova-plugin-flc-util",
+  "version": "1.5.0",
+  "description": "Cordova FullLegitCode Util Plugin",
+  "cordova": {
+    "id": "cordova-plugin-flc-util",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "fulllegitcode",
+    "flc",
+    "util",
+    "wakelock",
+    "wake lock",
+    "decode",
+    "image",
+    "ip",
+    "address",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Tomasz Rozwadowski",
+  "license": "Apache 2.0"
+}

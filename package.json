@@ -1,0 +1,14 @@
+{
+  "name": "flc-util",
+  "version": "1.0.0",
+  "scripts": {
+    "prepare": "node scripts/prepare.js",
+    "prepare-cordova": "cd ./src/cordova & cordova plugin remove cordova-plugin-flc-util & cordova plugin add cordova-plugin-flc-util --searchpath=../../dist/cordova",
+    "prepare-unity": "node scripts/prepare-unity.js"
+  },
+  "author": "FullLegitCode",
+  "license": "ISC",
+  "dependencies": {
+    "node-cmd": "^3.0.0"
+  }
+}
