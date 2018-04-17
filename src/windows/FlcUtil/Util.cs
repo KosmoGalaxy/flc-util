@@ -12,7 +12,7 @@ namespace FullLegitCode.Util
     {
         public static IAsyncOperation<IList<byte>> DecodeImage(IList<byte> byteList)
         {
-            async Task<IList<byte>> Action()
+            return Task.Run<IList<byte>>(async () =>
             {
                 byte[] bytes = new byte[byteList.Count];
                 byteList.CopyTo(bytes, 0);
@@ -24,13 +24,13 @@ namespace FullLegitCode.Util
                     list.AddRange(provider.DetachPixelData());
                     return list;
                 }
-            }
-            return Action().AsAsyncOperation();
+            })
+            .AsAsyncOperation();
         }
 
         public static IAsyncOperation<string> GetIp()
         {
-            async Task<string> Action()
+            return Task.Run(async () =>
             {
                 IPHostEntry host = await Dns.GetHostEntryAsync(Dns.GetHostName());
                 foreach (IPAddress ip in host.AddressList)
@@ -40,9 +40,9 @@ namespace FullLegitCode.Util
                         return ip.ToString();
                     }
                 }
-                return null;
-            }
-            return Action().AsAsyncOperation();
+                throw new Exception("ip not found");
+            })
+            .AsAsyncOperation();
         }
     }
 }

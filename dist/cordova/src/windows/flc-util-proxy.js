@@ -3,21 +3,11 @@ const component = FullLegitCode.Util.Util;
 module.exports = {
 
   decodeImage: function(successCallback, errorCallback, bytes) {
-    component.decodeImage(bytes)
-    .then(bytes => successCallback(bytes))
-    .catch(e => errorCallback(e));
+    component.decodeImage(bytes).then(successCallback, errorCallback);
   },
 
   getIp: function(successCallback, errorCallback) {
-    component.getIp()
-    .then(ip => {
-      if (ip) {
-        successCallback(ip);
-      } else {
-        errorCallback();
-      }
-    })
-    .catch(e => errorCallback(e));
+    component.getIp().then(successCallback, errorCallback);
   }
 
 };
