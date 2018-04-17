@@ -41,7 +41,10 @@
     </platform>
 
     <platform name="windows">
-        <js-module src="src/windows/flc-util-proxy.js" name="FlcUtilProxy" />
+        <js-module src="src/windows/flc-util-proxy.js" name="FlcUtilProxy">
+            <runs />
+        </js-module>
+
         <framework src="src/windows/FullLegitCode.Util.winmd" custom="true" />
     </platform>
 </plugin>

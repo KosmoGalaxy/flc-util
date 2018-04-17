@@ -1,7 +1,5 @@
-﻿using FullLegitCode.Util;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -73,8 +71,6 @@ namespace FlcUtilTest
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
-
-            _Test();
         }
 
         /// <summary>
@@ -99,13 +95,6 @@ namespace FlcUtilTest
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
-        }
-
-
-        async void _Test()
-        {
-            string ip = await Util.GetIp();
-            Debug.WriteLine("[FlcUtilTest] ip: " + ip);
         }
     }
 }
