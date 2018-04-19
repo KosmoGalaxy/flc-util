@@ -13,3 +13,4 @@
 /src/unity/unity.sln
 /src/unity/UnityEditor.StandardEvents.csproj
 node_modules/
+.DS_Store
