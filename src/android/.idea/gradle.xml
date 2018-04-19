@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/flc-util" />
+            <option value="$PROJECT_DIR$/flc-util-cordova" />
             <option value="$PROJECT_DIR$/flc-util-unity" />
           </set>
         </option>
