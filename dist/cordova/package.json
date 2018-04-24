@@ -21,8 +21,13 @@
     "image",
     "ip",
     "address",
+    "permissions",
     "ecosystem:cordova",
-    "cordova-android"
+    "ecosystem:ios",
+    "ecosystem:windows",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
   ],
   "author": "Tomasz Rozwadowski",
   "license": "Apache 2.0"

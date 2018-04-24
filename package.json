@@ -2,9 +2,9 @@
   "name": "flc-util",
   "version": "1.0.0",
   "scripts": {
-    "prepare": "node scripts/prepare.js",
-    "prepare-cordova": "node scripts/prepare-cordova & cd ./src/cordova & cordova plugin remove cordova-plugin-flc-util & cordova plugin add cordova-plugin-flc-util --searchpath=../../dist/cordova",
-    "prepare-unity": "node scripts/prepare-unity.js"
+    "cordova-prepare": "node scripts/cordova-prepare & cd ./src/cordova & cordova plugin remove cordova-plugin-flc-util & cordova plugin add cordova-plugin-flc-util --searchpath=../../dist/cordova",
+    "cordova-publish": "node scripts/cordova-publish & cd ../cordova-plugin-flc-util & git add -A & git commit -m \"published from flc-util\" & git push",
+    "unity-prepare": "node scripts/unity-prepare"
   },
   "author": "FullLegitCode",
   "license": "ISC",
