@@ -4,10 +4,16 @@ module.exports = {
 
   decodeImage: function(successCallback, errorCallback, args) {
     try {
-      const bytes = args[0];
-      console.log('[FlcUtil.decodeImage] bytes', bytes);
-      component.decodeImage(bytes).then(
-        data => successCallback(Uint8Array.from(data).buffer),
+      const startTime = Date.now();
+      console.log(`[FlcUtil.decodeImage] windows proxy start (time)=${startTime}`);
+      const encodedBytes = new Uint8Array(args[0]);
+      const decodedBytes = new FullLegitCode.Util.ByteArrayWrapper();
+      component.decodeImage(encodedBytes, decodedBytes).then(
+        () => {
+          const endTime = Date.now();
+          console.log(`[FlcUtil.decodeImage] windows proxy end (time)=${endTime} (time delta)=${endTime - startTime}`);
+          successCallback(decodedBytes.bytes.buffer);
+        },
         errorCallback
       );
     } catch (e) { errorCallback(e) }
@@ -15,7 +21,7 @@ module.exports = {
 
   getIp: function(successCallback, errorCallback) {
     try {
-    component.getIp().then(successCallback, errorCallback);
+      component.getIp().then(successCallback, errorCallback);
     } catch (e) { errorCallback(e) }
   }
 

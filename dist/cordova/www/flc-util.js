@@ -62,11 +62,11 @@ FlcUtil.setKeepScreenOn = function(value, successCallback, errorCallback) {
   );
 };
 
-FlcUtil.decodeImage = function(bytes, successCallback, errorCallback) {
+FlcUtil.decodeImage = function(buffer, successCallback, errorCallback) {
   exec(
-    function(decodedBytes) {
+    function(buffer) {
       if (successCallback) {
-        successCallback(decodedBytes);
+        successCallback(buffer);
       }
     },
     function(error) {
@@ -76,7 +76,7 @@ FlcUtil.decodeImage = function(bytes, successCallback, errorCallback) {
     },
     'FlcUtil',
     'decodeImage',
-    [bytes]
+    [buffer]
   );
 };
 
@@ -94,6 +94,24 @@ FlcUtil.getIp = function(successCallback, errorCallback) {
     },
     'FlcUtil',
     'getIp'
+  );
+};
+
+FlcUtil.test = function(value, successCallback, errorCallback) {
+  exec(
+    function(result) {
+      if (successCallback) {
+        successCallback(result);
+      }
+    },
+    function(error) {
+      if (errorCallback) {
+        errorCallback(error);
+      }
+    },
+    'FlcUtil',
+    'test',
+    [value]
   );
 };
 

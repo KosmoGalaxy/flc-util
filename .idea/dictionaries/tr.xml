@@ -2,6 +2,7 @@
   <dictionary name="tr">
     <words>
       <w>cordova</w>
+      <w>deviceready</w>
       <w>fulllegitcode</w>
       <w>utilcordova</w>
       <w>winmd</w>

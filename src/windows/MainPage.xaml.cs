@@ -33,14 +33,14 @@ namespace FlcUtilTest
 
         void _Test()
         {
-            _GetIp();
+            //_GetIp();
             _DecodeImage();
         }
 
         async void _GetIp()
         {
             string ip = await Util.GetIp();
-            Debug.WriteLine("[FlcUtilTest] ip: " + ip);
+            Debug.WriteLine("[FlcUtilTest.getIp] ip: " + ip);
         }
 
         async void _DecodeImage()
@@ -51,12 +51,13 @@ namespace FlcUtilTest
                 using (MemoryStream memoryStream = new MemoryStream())
                 {
                     await fileStream.CopyToAsync(memoryStream);
-                    List<byte> list = new List<byte>();
-                    list.AddRange(memoryStream.ToArray());
-                    list = (List<byte>)await Util.DecodeImage(list);
-                    byte[] bytes = list.ToArray();
+                    byte[] encodedBytes = memoryStream.ToArray();
+                    byte[] decodedBytes = new byte[1920 * 1080 * 4];
+                    DateTime startTime = DateTime.Now;
+                    await Util.DecodeImage(encodedBytes, decodedBytes);
+                    Debug.WriteLine("[FlcUtilTest.decodeImage] time: " + (DateTime.Now - startTime).TotalMilliseconds);
                     WriteableBitmap bitmap = new WriteableBitmap(1920, 1080);
-                    await bitmap.PixelBuffer.AsStream().WriteAsync(bytes, 0, bytes.Length);
+                    await bitmap.PixelBuffer.AsStream().WriteAsync(decodedBytes, 0, decodedBytes.Length);
                     image.Source = bitmap;
                 }
             }

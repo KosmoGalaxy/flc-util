@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Foundation;
@@ -10,22 +10,26 @@ namespace FullLegitCode.Util
 {
     public sealed class Util
     {
-        public static IAsyncOperation<IList<byte>> DecodeImage(IList<byte> byteList)
+        static BitmapTransform zeroBitmapTransform = new BitmapTransform();
+
+        public static IAsyncAction DecodeImage([ReadOnlyArray()] Byte[] encodedBytes, IByteArrayWrapper decodedBytes)
         {
-            return Task.Run<IList<byte>>(async () =>
+            return Task.Run(async () =>
             {
-                byte[] bytes = new byte[byteList.Count];
-                byteList.CopyTo(bytes, 0);
-                using (MemoryStream stream = new MemoryStream(bytes))
+                using (MemoryStream stream = new MemoryStream(encodedBytes))
                 {
                     BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream.AsRandomAccessStream());
-                    PixelDataProvider provider = await decoder.GetPixelDataAsync();
-                    List<byte> list = new List<byte>();
-                    list.AddRange(provider.DetachPixelData());
-                    return list;
+                    PixelDataProvider provider = await decoder.GetPixelDataAsync(
+                        BitmapPixelFormat.Rgba8,
+                        BitmapAlphaMode.Ignore,
+                        zeroBitmapTransform,
+                        ExifOrientationMode.IgnoreExifOrientation,
+                        ColorManagementMode.DoNotColorManage
+                    );
+                    decodedBytes.Bytes = provider.DetachPixelData();
                 }
             })
-            .AsAsyncOperation();
+            .AsAsyncAction();
         }
 
         public static IAsyncOperation<string> GetIp()
