@@ -16,6 +16,7 @@ public class UtilUnity {
     return Util.checkPermissions(UnityPlayer.currentActivity, permissions);
   }
 
+
   public static void requestPermissions(String[] permissions, RequestPermissionsCallback callback) {
     final RequestPermissionsDelegate delegate = Util.requestPermissions(permissions, callback);
     final PermissionFragment fragment = new PermissionFragment();
@@ -37,8 +38,13 @@ public class UtilUnity {
     transaction.commit();
   }
 
+
+  public static float getBatteryLevel() {
+    return Util.getBatteryLevel(UnityPlayer.currentActivity);
+  }
+
+
   public static float getTemperature() {
     return Util.getTemperature(UnityPlayer.currentActivity);
   }
-
 }

@@ -1,6 +1,6 @@
 {
   "name": "flc-util",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "cordova-prepare": "node scripts/cordova-prepare & cd ./src/cordova & cordova plugin remove cordova-plugin-flc-util & cordova plugin add cordova-plugin-flc-util --searchpath=../../dist/cordova",
     "cordova-publish": "node scripts/cordova-publish & cd ../cordova-plugin-flc-util & git add -A & git commit -m \"published from flc-util\" & git push",
